@@ -2,7 +2,7 @@
 
 # _authors_:
 #  QSmth (@Qsmthn) 
-#  Shikari
+#  Shikari (@Lukesparamore)
 
 import textwrap
 import argparse
