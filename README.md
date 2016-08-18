@@ -34,9 +34,4 @@ What it does:
 # To be done #
 
 **Features**
-
-[] - Priority from. 0 is the most significant
-
-* [done] Add files with different extensions - for karmaSMB. Such files as .xml  
-* [0] (Need more research) Stop redirecting ALL SMB2 TRAFFIC, because by doing so you ruin all SMB2 communications
-* [1] (Not so interesting) Hide PowerShell window
+* (Need more research) Stop redirecting ALL SMB2 TRAFFIC, because by doing so you ruin all SMB2 communications
