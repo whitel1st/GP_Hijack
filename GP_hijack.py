@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+# _authors_:
+#  QSmth (@Qsmthn) 
+#  Shikari
+
 import textwrap
 import argparse
 import os
