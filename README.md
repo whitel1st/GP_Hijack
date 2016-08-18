@@ -1,9 +1,9 @@
 
-# Group Policy Hijack automated #
+# GP Hijack automated #
 
 **Version 1.0**
 
-This script allow you to exploit SMB Hijacking attack.
+This script allows you to exploit Group Policy Hijacking attack.
 
 What it does:
 
@@ -25,7 +25,7 @@ What it does:
 **Config mode**
 
 * Change the way of delivering shell
-* Change type of shell: custom or msf
+* Change type of the shell: custom or msf
 
 **Read mode**
 
