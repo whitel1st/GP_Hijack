@@ -1,5 +1,5 @@
 
-# README #
+# Group Policy Hijack automated #
 
 **Version 1.0**
 
@@ -31,7 +31,10 @@ What it does:
 
 * Read config created in setup mode  
 
-# To be done #
+# Terms of Use #
 
-**Features**
-* (Need more research) Stop redirecting ALL SMB2 TRAFFIC, because by doing so you ruin all SMB2 communications
+* Do NOT use this on any computer you do not own, or are allowed to run this on;
+* Credits must always be given, With linksback to here;
+* You may NEVER attempt to sell this, its free and open source;
+* The authors and publishers assume no responsibility;
+* For educational purposes only.
