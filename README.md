@@ -1,9 +1,19 @@
 
-# GP Hijack automated #
+# GroupPolicy Hijacking
+
+
+---
+
+## Warning
+
+Current version of a script will turns on karma smb for all smb traffic.
+So when you MiTM your victim and his DC (domain controller), all SMB functionality excep those that need for a Group Policy hijacking **will be lost**! 
+
+---
 
 **Version 1.0**
 
-This script allows you to exploit Group Policy Hijacking attack.
+This script allows you to exploit Group Policy Hijacking attack to get an RCE.
 
 What it does:
 
@@ -17,24 +27,21 @@ What it does:
 **Run mode**
 
 * Check and if necessary creates iptables rules for supplied IP addresses
-* Check and if necessary run apache2 or vsftpd
-* Increment version GPT.ini
+* Check and if necessary run `apache2` or `vsftpd`
+* Increment version `GPT.ini`
 * Run karmaSMB with created config (created in setup mode)
 * Write logs of karmaSMB activity
 
 **Config mode**
 
-* Change the way of delivering shell
+* Change a way of the shell delivering 
 * Change type of the shell: custom or msf
 
 **Read mode**
 
 * Read config created in setup mode  
 
-# Terms of Use #
 
-* Do NOT use this on any computer you do not own, or are allowed to run this on;
-* Credits must always be given, With linksback to here;
-* You may NEVER attempt to sell this, its free and open source;
-* The authors and publishers assume no responsibility;
-* For educational purposes only.
+## Related research/articles 
+
+- [[MWR Labs] How to own any Windows network with group policy hijacking attacks](https://labs.mwrinfosecurity.com/blog/how-to-own-any-windows-network-with-group-policy-hijacking-attacks/)
